@@ -9,10 +9,20 @@ else
     SOURCE_DIR=$PWD/$SOURCE_DIR
 fi
 
-read -p "Do you want to install oh-my-zsh? (y/n) " oh_my_zsh_on
+check() {
+    read -p "Do you want to install $1? (y/n) " on
+    [ $on == "y" ]
+}
 
-if [ $oh_my_zsh_on == "y" ]; then
+if check oh-my-zsh; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+if check brew; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 ln -sv $SOURCE_DIR/zshrc $HOME/.zshrc
+ln -sv $SOURCE_DIR/Brewfile $HOME/.Brewfile
+
+brew bundle install --file=$SOURCE_DIR/Brewfile

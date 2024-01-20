@@ -15,3 +15,4 @@ brew-remove() {
 
 source $HOME/.cargo/env
 
+export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile"
