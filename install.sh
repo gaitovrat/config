@@ -24,5 +24,7 @@ fi
 
 ln -sv $SOURCE_DIR/zshrc $HOME/.zshrc
 ln -sv $SOURCE_DIR/Brewfile $HOME/.Brewfile
+ln -sv $SOURCE_DIR/vimrc $HOME/.vimrc
 
 brew bundle install --file=$SOURCE_DIR/Brewfile
+
