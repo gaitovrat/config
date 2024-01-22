@@ -3,10 +3,12 @@
 TARGET_DIR=$HOME
 SOURCE_DIR=$(dirname $0)
 
-if [ $SOURCE_DIR == "." ]; then
+if [ $SOURCE_DIR == . ]
+then
     SOURCE_DIR=$PWD
-else
-    SOURCE_DIR=$PWD/$SOURCE_DIR
+elif [[ $SOURCE_DIR =~ ^\.\/ ]]
+then
+    SOURCE_DIR=$PWD/${SOURCE_DIR#./}
 fi
 
 check() {
