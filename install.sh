@@ -1,15 +1,8 @@
 #! /bin/bash
 
 TARGET_DIR=$HOME
-SOURCE_DIR=$(dirname $0)
-
-if [ $SOURCE_DIR == . ]
-then
-    SOURCE_DIR=$PWD
-elif [[ $SOURCE_DIR =~ ^\.\/ ]]
-then
-    SOURCE_DIR=$PWD/${SOURCE_DIR#./}
-fi
+SCRIPT_PATH=$(readlink -f $0)
+SOURCE_DIR=$(dirname $SCRIPT_PATH)
 
 check() {
     read -p "Do you want to install $1? (y/n) " on
