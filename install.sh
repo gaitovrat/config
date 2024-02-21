@@ -4,12 +4,8 @@ TARGET_DIR=$HOME
 SCRIPT_PATH=$(readlink -f $0)
 SOURCE_DIR=$(dirname $SCRIPT_PATH)
 
-check() {
-    read -p "Do you want to install $1? (y/n) " on
-    [ $on == "y" ]
-}
-
-if check brew; then
+if [ ! $(which brew) ]; then
+    echo Installing brew...
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
