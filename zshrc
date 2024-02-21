@@ -21,4 +21,10 @@ brew-remove() {
 source $HOME/.cargo/env
 
 export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile"
+QT_DIR=$HOME/lib/Qt/6.6.2/macos/lib/cmake
+if [ -d $QT_DIR ]; then
+    for directory in $(ls $QT_DIR); do
+        export "${directory}_DIR"="$QT_DIR/$directory"
+    done
+fi
 
