@@ -34,3 +34,10 @@ mkdir -pv $HOME/.config/mpv && \
 
 brew bundle install --file=$SOURCE_DIR/Brewfile
 
+echo Install SDKMan
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+echo Install Java
+sdk i java
+echo Install Maven
+sdk i maven
