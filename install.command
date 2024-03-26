@@ -20,6 +20,19 @@ if [ ! $(which brew) ]; then
     /bin/bash -c \
         "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+if [ ! -e "$HOME/.sdkman" ]; then
+    echo Installing SDKMan...
+    curl -s "https://get.sdkman.io" | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
+if [ ! -e "$HOME/.oh-my-zsh" ]; then
+    echo Installing oh-my-zsh...
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    rm -v $HOME/.zshrc
+fi
+
 echo Updating git config...
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
@@ -34,10 +47,8 @@ mkdir -pv $HOME/.config/mpv && \
 
 brew bundle install --file=$SOURCE_DIR/Brewfile
 
-echo Install SDKMan
-curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-echo Install Java
+echo Installing Java...
 sdk i java
-echo Install Maven
+echo Installing Maven...
 sdk i maven
+
