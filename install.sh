@@ -7,6 +7,7 @@ SOURCE_DIR=$(dirname $SCRIPT_PATH)
 GIT_NAME="Ratmir Gaitov"
 GIT_EMAIL="gaitovrat@gmail.com"
 PULL_REBASE="true"
+PUSH_AUTO_SETUP_REMOTE="true"
 INIT_DEFAULT_BRANCH="main"
 
 if [ ! $(which cargo) ]; then
@@ -38,6 +39,7 @@ git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 git config --global pull.rebase "$PULL_REBASE"
 git config --global init.defaultBranch "$INIT_DEFAULT_BRANCH"
+git config --global push.autoSetupRemote "$PUSH_AUTO_SETUP_REMOTE"
 
 ln -sv $SOURCE_DIR/zshrc $HOME/.zshrc
 ln -sv $SOURCE_DIR/Brewfile $HOME/.Brewfile
