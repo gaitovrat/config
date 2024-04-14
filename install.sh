@@ -45,8 +45,6 @@ git config --global push.autoSetupRemote "$PUSH_AUTO_SETUP_REMOTE"
 ln -sv $SOURCE_DIR/zshrc $HOME/.zshrc
 ln -sv $SOURCE_DIR/Brewfile $HOME/.Brewfile
 ln -sv $SOURCE_DIR/vimrc $HOME/.vimrc
-mkdir -pv $HOME/.config/mpv && \
-    ln -sv $SOURCE_DIR/mpv/input.conf $HOME/.config/mpv/input.conf
 
 brew bundle install --file=$SOURCE_DIR/Brewfile
 
